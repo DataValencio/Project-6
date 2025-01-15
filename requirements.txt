@@ -3,5 +3,5 @@ plotly
 seaborn
 scipy
 jupyter
-voila
+streamlit
 numpy
