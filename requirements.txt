@@ -2,4 +2,6 @@ pandas
 plotly
 seaborn
 scipy
-streamlit
+jupyter
+voila
+numpy
