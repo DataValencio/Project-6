@@ -15,7 +15,7 @@ st.write('O conjunto de dados contém uma coluna de "rating" (classificação) q
 st.header("Lendo as 10 primeiras linhas do DF")
 
 df_games = pd.read_csv('games.csv')
-print(df_games.head(10))
+df_games
 
 st.header("Deixando todas as letras iniciais das colunas em minusculas")
 
