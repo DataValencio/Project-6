@@ -7,6 +7,10 @@ import scipy.stats as stats
 df_games = pd.read_csv('games.csv')
 print(df_games.head(10))
 
+#Deixando todas as letras iniciais das colunas em minusculas.
+
+df_games.columns = df_games.columns.str.lower()
+print(df_games)
 
 #Alterando os tipo de dados das colunas e substituindo valores ausentes.
 
