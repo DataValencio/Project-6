@@ -2,17 +2,21 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import scipy.stats as stats
+import streamlit as st
 
+st.title("Meu Projeto sobre Analise de vendas de jogos")
+
+st.headerr("Lendo as 10 primeiras linhas do DF")
 
 df_games = pd.read_csv('games.csv')
 print(df_games.head(10))
 
-#Deixando todas as letras iniciais das colunas em minusculas.
+st.header("Deixando todas as letras iniciais das colunas em minusculas")
 
 df_games.columns = df_games.columns.str.lower()
 print(df_games)
 
-#Alterando os tipo de dados das colunas e substituindo valores ausentes.
+st.header("Alterando os tipo de dados das colunas e substituindo valores ausentes")
 
 
 df_games['user_score'] = df_games['user_score'].replace('tbd', '0')
@@ -23,10 +27,12 @@ df_games['year_of_release'] = pd.to_numeric(df_games['year_of_release'], errors=
 df_games = df_games.dropna(subset=['year_of_release'])
 df_games
 
+st.header("Verificando valores nulos e somando-os")
+
 df_games.isna().sum()
 
 
-#Substituindo os valores ausentes das colunas categoricas.
+st.header("Substituindo os valores ausentes das colunas categoricas")
 
 df_games.dropna(subset=['name', 'genre'], inplace=True)
 df_games.fillna({'rating': 'desconhecido'}, inplace=True)
