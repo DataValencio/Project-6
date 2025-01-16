@@ -6,7 +6,7 @@ import streamlit as st
 
 st.title("Meu Projeto sobre Analise de vendas de jogos")
 
-st.headerr("Lendo as 10 primeiras linhas do DF")
+st.header("Lendo as 10 primeiras linhas do DF")
 
 df_games = pd.read_csv('games.csv')
 print(df_games.head(10))
