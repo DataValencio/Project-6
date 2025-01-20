@@ -17,12 +17,11 @@ st.header("Lendo as 10 primeiras linhas do DF")
 df_games = pd.read_csv('games.csv')
 df_games
 
-st.header("Deixando todas as letras iniciais das colunas em minusculas")
-
 df_games.columns = df_games.columns.str.lower()
 print(df_games)
 
-st.header("Alterando os tipo de dados das colunas e substituindo valores ausentes")
+st.header("Agora nos iremos alterar os tipo de dados das colunas e substituir os valores ausentes. Deixaremos todas as letras iniciais das colunas em minusculas. Tambem criaremos uma nova coluna somando a receita com base nas regiões")
+
 
 
 df_games['user_score'] = df_games['user_score'].replace('tbd', '0')
@@ -33,25 +32,22 @@ df_games['year_of_release'] = pd.to_numeric(df_games['year_of_release'], errors=
 df_games = df_games.dropna(subset=['year_of_release'])
 df_games
 
-st.header("Verificando valores nulos e somando-os")
-
 df_games.isna().sum()
-
-
-st.header("Substituindo os valores ausentes das colunas categoricas")
 
 df_games.dropna(subset=['name', 'genre'], inplace=True)
 df_games.fillna({'rating': 'desconhecido'}, inplace=True)
+
+
 
 
 df_games['total_sales'] = df_games[['na_sales',  'eu_sales', 'jp_sales', 'other_sales']].sum(axis=1)
 df_games['total_sales'] = df_games['total_sales'].astype('int64')
 df_games
 
-
+st.header("Agora iremos verificar os jogos por anos e contalos")
 games_per_year = df_games['year_of_release'].value_counts().sort_index()
 
-print(games_per_year)
+games_per_year
 
 
 #Visualizando os dados em grafico.
